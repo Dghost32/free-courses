@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "next-themes";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -23,6 +24,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body className={`${inter.className} min-h-screen antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange enableSystem={false}>
           {children}
+
+          <Analytics />
           <Toaster />
         </ThemeProvider>
       </body>
