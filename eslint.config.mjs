@@ -43,7 +43,7 @@ export default [
   pluginReact.configs.flat.recommended,
   securityPlugin.configs.recommended,
   ...tseslint.configs.recommended,
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "eslint:recommended", "next"),
   {
     rules: {
       // Prettier integration rules
