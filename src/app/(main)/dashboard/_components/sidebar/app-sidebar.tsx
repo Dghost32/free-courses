@@ -1,5 +1,6 @@
 "use client";
 
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import { Settings, CircleHelp, Search, Database, ClipboardList, File, Command } from "lucide-react";
 
 import {
@@ -76,7 +77,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={rootUser} />
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </SidebarFooter>
     </Sidebar>
   );
