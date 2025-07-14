@@ -1,10 +1,6 @@
-// revisar middleware de plantilla
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-// revisar middleware de plantilla
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-
-import { authMiddleware } from "./middleware/auth-middleware";
 
 const isProtectedRoute = createRouteMatcher(["/dashboard/:path*"]);
 
