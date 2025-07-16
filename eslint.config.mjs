@@ -11,6 +11,9 @@ import sonarjs from "eslint-plugin-sonarjs";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
+  recommendedConfig: {
+    extends: ["next/core-web-vitals", "next/typescript", "eslint:recommended", "next"],
+  },
 });
 
 /** @type {import('eslint').Linter.Config[]} */
