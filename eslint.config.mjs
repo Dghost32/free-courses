@@ -10,7 +10,7 @@ import unicorn from "eslint-plugin-unicorn";
 import sonarjs from "eslint-plugin-sonarjs";
 
 const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
+  baseDirectory: import.meta.dirname
 });
 
 /** @type {import('eslint').Linter.Config[]} */
