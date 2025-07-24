@@ -7,12 +7,12 @@ const storage = new Storage({
     private_key: process.env.GCS_PRIVATE_KEY?.split(String.raw`\n`).join("\n"),
   },
 });
-const bucketName = "freecourses";
+const bucketName = process.env.BUCKET_NAME!;
 
 export async function getAllFiles() {
-  const [files] = await storage.bucket(bucketName).getFiles();
-  const archivos = await Promise.all(
-    files.map(async (file) => {
+  const [fileList] = await storage.bucket(bucketName).getFiles();
+  const files = await Promise.all(
+    fileList.map(async (file) => {
       const [url] = await file.getSignedUrl({
         action: "read",
         expires: Date.now() + 1000 * 60 * 60, // 1 hora
@@ -20,7 +20,7 @@ export async function getAllFiles() {
       return { name: file.name, url };
     }),
   );
-  return archivos;
+  return files;
 }
 
 export async function getFileByName(fileName: string) {
